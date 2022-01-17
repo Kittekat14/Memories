@@ -28,3 +28,21 @@ export const updatePost = (id, post) => async (dispatch) => {
     console.log(error); //always console.log error, not error.message: gives more infos
   }
 };
+
+export const deletePost = (id) => async (dispatch) => {
+  try {
+    await api.deletePost(id); // no const { data } = response.data, because we aren't interested in the data when we delete
+    dispatch({ type: "DELETE", payload: id });
+  } catch (error) {
+    console.log(error); //always console.log error, not error.message: gives more infos
+  }
+};
+
+export const likePost = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.likePost(id); // no const { data } = response.data, because we aren't interested in the data when we delete
+    dispatch({ type: "LIKE", payload: data });
+  } catch (error) {
+    console.log(error); //always console.log error, not error.message: gives more infos
+  }
+};

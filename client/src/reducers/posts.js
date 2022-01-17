@@ -5,9 +5,15 @@ const posts = (posts = [], action) => {
     case "CREATE":
       return [...posts, action.payload];
     case "UPDATE":
-      return posts.map((post) =>
-        post._id === action.payload._id ? action.payload : post
+    case "LIKE":
+      return posts.map(
+        (post) =>
+          post._id === action.payload._id
+            ? action.payload
+            : post /*if in the action.payload is the _id, use that new payload, otherwise old post-payload */
       );
+    case "DELETE":
+      return posts.filter((post) => post._id !== action.payload); // keep all posts except one inside action.payload!
     default:
       return posts;
   }
