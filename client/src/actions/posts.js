@@ -8,7 +8,7 @@ import {
 
 import * as api from "../api";
 
-//Action creators with Redux thunk and async functions
+//Action creators with Redux thunk and async functions and dispatch() => sender/messager
 
 export const getPosts = () => async (dispatch) => {
   try {
