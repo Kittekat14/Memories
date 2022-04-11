@@ -2,7 +2,7 @@ import React from "react";
 import { TextField, Grid, InputAdornment, IconButton } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-
+// this is the custom InputField:
 const Input = ({
   half,
   name,
@@ -17,7 +17,7 @@ const Input = ({
       name={name}
       label={label}
       handleChange={handleChange}
-      variant="outlined"
+      variant='outlined'
       required
       fullWidth
       autoFocus={autoFocus}
@@ -26,7 +26,7 @@ const Input = ({
         name === "password"
           ? {
               endAdornment: (
-                <InputAdornment position="end">
+                <InputAdornment position='end'>
                   <IconButton onClick={handleShowPassword}>
                     {type === "password" ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
